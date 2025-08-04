@@ -98,7 +98,17 @@ a:hover, a:focus {
 
 /* Unify all button usages */
 .cta-button, .auth-button, .signup-btn, .signin-btn, .submit-btn, .resume-btn, .filter-btn {
-    @extend .btn;
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-md);
+    background: var(--primary-color);
+    color: #fff;
 }
 
 /* =====================
@@ -118,7 +128,13 @@ a:hover, a:focus {
     transform: translateY(-5px);
 }
 .skill-card, .project-card, .blog-card, .qualification-item {
-    @extend .card;
+    background: var(--card-background);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    padding: 2rem;
+    transition: var(--transition-base);
+    position: relative;
+    overflow: hidden;
 }
 
 /* =====================
@@ -411,15 +427,6 @@ section.visible {
 }
 
 /* Hero Section */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--gradient-primary);
-    position: relative;
-    overflow: hidden;
-}
 
 .hero::before {
     content: '';
@@ -560,9 +567,9 @@ section.visible {
     /* Clip background to text (WebKit browsers) */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    /* Optional: for Firefox (currently behind a flag) */
-    /* background-clip: text; */
-    /* text-fill-color: transparent; */
+    /* Standard property for compatibility */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 3rem;
     margin-bottom: 1rem;
 }
@@ -1189,10 +1196,9 @@ footer {
     /* Clip background to text (WebKit browsers) */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    /* Optional: for Firefox (currently behind a flag) */
-    /* background-clip: text; */
-    /* text-fill-color: transparent; */
+    /* Standard property for compatibility */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Authentication Section Styles */
