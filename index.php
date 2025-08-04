@@ -314,6 +314,5 @@ require_once __DIR__ . '/includes/db_connect.php';
     </div>
 
     <script src="assets/script.js" type="module"></script>
-    <?php include __DIR__ . '/../includes/footer.php'; ?>
 </body>
 </html>

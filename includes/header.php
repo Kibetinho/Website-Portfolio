@@ -25,4 +25,3 @@ require_once __DIR__ . '/../includes/db_connect.php';
         <div class="line3"></div>
     </div>
 </nav>
-<?php include __DIR__ . '/../includes/footer.php'; ?>

@@ -10,6 +10,4 @@ try {
 
     exit; // Stop further execution if connection fails
 }
-include __DIR__ . '/../includes/footer.php';
-?>
 

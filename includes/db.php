@@ -73,5 +73,4 @@ initializeDatabase($conn);
 // echo "Database initialized successfully."; // Uncomment for debugging
 
 // No need to include header here; do it in index.php
-include __DIR__ . '/../includes/footer.php';
 ?>

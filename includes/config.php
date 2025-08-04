@@ -7,5 +7,4 @@ define('DB_SERVER', '127.0.0.1');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '0000'); 
 define('DB_NAME', 'portfolio_db');
-include __DIR__ . '/../includes/footer.php';
 ?>

@@ -24,5 +24,4 @@ function listContactMessages() {
     }
     return $messages;
 }
-include __DIR__ . '/../includes/footer.php';
 ?>

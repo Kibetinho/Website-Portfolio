@@ -53,5 +53,4 @@ function listSkills($user_id = null) {
     }
     return $skills;
 }
-include __DIR__ . '/../includes/footer.php';
 ?>

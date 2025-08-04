@@ -41,5 +41,4 @@ function listUsers() {
     }
     return $users;
 }
-include __DIR__ . '/../includes/footer.php';
 ?>

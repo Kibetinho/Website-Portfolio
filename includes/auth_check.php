@@ -5,5 +5,4 @@ if (!isset($_SESSION["user_id"])) {
     exit;
 }
 include __DIR__ . '/../includes/header.php';
-include __DIR__ . '/../includes/footer.php';
 ?>

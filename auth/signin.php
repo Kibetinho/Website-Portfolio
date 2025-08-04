@@ -63,7 +63,17 @@ require_once __DIR__ . '/../includes/db_connect.php';
             </p>
         </div>
     </div>
-    <?php include __DIR__ . '/../includes/footer.php'; ?>
+    <!-- Footer (unified with index.html) -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:andrew.kibet@strathmore.edu" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="copyright">&copy; 2025 Kibet's Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
     <script src="../assets/script.js" type="module"></script>
 </body>
 </html>
