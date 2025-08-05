@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__ . '/../includes/auth_check.php';
-require_once __DIR__ . '/../includes/db_connect.php';
+// Centralized includes for authentication and database connection
+require_once __DIR__ . '/auth_check.php';
+require_once __DIR__ . '/db_connect.php';
 ?>
 <!-- filepath: includes/header.php -->
 <link rel="stylesheet" href="assets/styles.css">
