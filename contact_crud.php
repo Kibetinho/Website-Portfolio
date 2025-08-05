@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/db_connect.php';
 // Submit a contact message
 function submitContactMessage($name, $email, $subject, $message) {
     global $conn;
-    $sql = "INSERT INTO contact_messages (name, email, subject, message) VALUES ($1, $2, $3, $4)";
+    $sql = "INSERT INTO contact_messages (name, email, subject, message, created_at) VALUES ($1, $2, $3, $4, NOW())";
     $params = array($name, $email, $subject, $message);
     $result = pg_query_params($conn, $sql, $params);
     return $result;
