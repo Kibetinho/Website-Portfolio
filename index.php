@@ -28,11 +28,16 @@ require_once __DIR__ . '/includes/db_connect.php';
             <li><a href="index.php#qualification" class="nav-link">Qualification</a></li>
             <li><a href="index.php#skills" class="nav-link">Skills</a></li>
             <li><a href="index.php#projects" class="nav-link">Projects</a></li>
-            <li class="nav-auth contact-link-li" style="display:none;"><a href="index.php#contact" class="nav-link contact-link">Contact</a></li>
+            <li><a href="modules/admin.php" class="nav-link">Admin Panel</a></li>
+            <li><a href="modules/persons.php" class="nav-link">Persons</a></li>
+            <li><a href="crud scripts/user_crud.php" class="nav-link">User CRUD</a></li>
+            <li><a href="crud scripts/project_crud.php" class="nav-link">Project CRUD</a></li>
+            <li><a href="crud scripts/skill_crud.php" class="nav-link">Skill CRUD</a></li>
+            <li><a href="crud scripts/contact_crud.php" class="nav-link">Contact CRUD</a></li>
+            <li><a href="auth/signup.php" class="nav-link btn btn-primary signup-btn">Sign Up</a></li>
+            <li><a href="auth/signin.php" class="nav-link btn btn-secondary signin-btn">Sign In</a></li>
+            <li><a href="auth/signout.php" class="nav-link btn btn-outline signout-btn" id="signout-btn" style="display:none;">Sign Out</a></li>
             <li><span class="welcome-msg"></span></li>
-            <li class="nav-auth"><a href="signup.php" class="nav-link btn btn-primary signup-btn">Sign Up</a></li>
-            <li class="nav-auth"><a href="signin.php" class="nav-link btn btn-secondary signin-btn">Sign In</a></li>
-            <li class="nav-auth"><a href="#" class="nav-link btn btn-outline signout-btn" id="signout-btn" style="display:none;">Sign Out</a></li>
         </ul>
         <div class="burger">
             <div class="line1"></div>
