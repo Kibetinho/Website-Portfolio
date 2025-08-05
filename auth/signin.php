@@ -1,0 +1,113 @@
+<?php
+require_once __DIR__ . '/../includes/db_connect.php';
+session_start();
+
+$login_error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
+
+    if (!$email || !$password) {
+        $login_error = "Both fields are required.";
+    } else {
+        $stmt = $conn->prepare("SELECT id, fullname, password FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->store_result();
+        if ($stmt->num_rows === 1) {
+            $stmt->bind_result($user_id, $fullname, $hashed_password);
+            $stmt->fetch();
+            if (password_verify($password, $hashed_password)) {
+                $_SESSION['user_id'] = $user_id;
+                $_SESSION['fullname'] = $fullname;
+                $_SESSION['email'] = $email;
+                header('Location: ../index.php');
+                exit();
+            } else {
+                $login_error = "Incorrect password.";
+            }
+        } else {
+            $login_error = "No account found with that email.";
+        }
+        $stmt->close();
+    }
+}
+?>
+<?php include __DIR__ . '/../includes/header.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Kibet's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation (unified with index.html) -->
+    <nav class="navbar">
+        <div class="logo">Kibet</div>
+        <ul class="nav-links">
+            <li><a href="index.html#home" class="nav-link">Home</a></li>
+            <li><a href="index.html#about" class="nav-link">About</a></li>
+            <li><a href="index.html#qualification" class="nav-link">Qualification</a></li>
+            <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+            <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+            <li><span class="welcome-msg"><i class="fa fa-user"></i></span></li>
+            <li><a href="#profile" class="nav-link profile-link" style="display:none;"><i class="fa fa-user-circle"></i> Profile</a></li>
+            <li class="nav-auth"><a href="signup.html" class="nav-link signup-btn">Sign Up</a></li>
+            <li class="nav-auth"><a href="signin.html" class="nav-link signin-btn">Sign In</a></li>
+            <li class="nav-auth"><a href="#" class="nav-link signout-btn" id="signout-btn" style="display:none;">Sign Out</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+    <div class="nav-overlay"></div>
+    <div class="auth-section">
+        <div class="auth-container">
+            <h2>Welcome Back</h2>
+            <form id="signin-form" class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="remember">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                <button type="submit" class="auth-button">Sign In</button>
+            </form>
+            <p class="auth-switch">
+                Don't have an account? <a href="signup.html">Sign Up</a>
+            </p>
+        </div>
+    </div>
+    <!-- Footer (unified with index.html) -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:your@email.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">
+                &copy; 2024 Kibet's Portfolio. All rights reserved.
+            </p>
+        </div>
+    </footer>
+    <script src="jscript.js"></script>
+</body>
+</html>
