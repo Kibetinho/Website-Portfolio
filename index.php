@@ -12,7 +12,7 @@ require_once __DIR__ . '/includes/db_connect.php';
     <meta name="description" content="Kibet's Portfolio - Full Stack Developer | UI/UX Enthusiast | Problem Solver">
     <meta name="theme-color" content="#2563eb">
     <title>Kibet's Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +52,7 @@ require_once __DIR__ . '/includes/db_connect.php';
         <div class="hero-content">
             <h1>Andrew Adrian Kibet</h1>
             <p class="hero-subtitle">Full Stack Developer & Software Engineer</p>
-            <a href="signup.php" class="cta-button signup btn btn-primary" style="margin-top: 1.5rem; display: inline-block;">Get Started</a>
+            <a href="auth/signup.php" class="cta-button signup btn btn-primary" style="margin-top: 1.5rem; display: inline-block;">Get Started</a>
         </div>
         <div class="hero-scroll-indicator" aria-hidden="true">
             <div class="mouse">
@@ -299,6 +299,6 @@ require_once __DIR__ . '/includes/db_connect.php';
                 </p>
             </div>
         </footer>
-        <script src="jscript.js"></script>
+        <script src="assets/jscript.js"></script>
     </body>
 </html>
