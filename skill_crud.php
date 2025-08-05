@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/db_connect.php';
 // Add a new skill
 function addSkill($user_id, $skill_name, $proficiency) {
     global $conn;
-    $sql = "INSERT INTO skills (user_id, skill_name, proficiency) VALUES ($1, $2, $3)";
+    $sql = "INSERT INTO skills (user_id, skill_name, proficiency, created_at) VALUES ($1, $2, $3, NOW())";
     $params = array($user_id, $skill_name, $proficiency);
     $result = pg_query_params($conn, $sql, $params);
     return $result;
