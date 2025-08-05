@@ -5,7 +5,7 @@ require_once __DIR__ . '/../includes/db_connect.php';
 // Add a new project
 function addProject($user_id, $title, $description, $image = null) {
     global $conn;
-    $sql = "INSERT INTO projects (user_id, title, description, image) VALUES ($1, $2, $3, $4)";
+    $sql = "INSERT INTO projects (user_id, title, description, image, created_at) VALUES ($1, $2, $3, $4, NOW())";
     $params = array($user_id, $title, $description, $image);
     $result = pg_query_params($conn, $sql, $params);
     return $result;
