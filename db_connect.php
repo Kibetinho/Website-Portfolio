@@ -1,7 +1,4 @@
 <?php
-require_once __DIR__ . '/../includes/auth_check.php';
-require_once __DIR__ . '/../includes/db_connect.php';
-
 // Database configuration
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
