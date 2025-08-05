@@ -3,11 +3,11 @@ require_once __DIR__ . '/../includes/auth_check.php';
 require_once __DIR__ . '/../includes/db_connect.php';
 
 // Register a new user
-function registerUser($username, $password, $email) {
+function registerUser($username, $password, $email, $is_admin = false) {
     global $conn;
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO users (username, password, email) VALUES ($1, $2, $3)";
-    $params = array($username, $hashed_password, $email);
+    $sql = "INSERT INTO users (username, password, email, is_admin, created_at) VALUES ($1, $2, $3, $4, NOW())";
+    $params = array($username, $hashed_password, $email, $is_admin);
     $result = pg_query_params($conn, $sql, $params);
     return $result;
 }
